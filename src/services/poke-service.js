@@ -60,6 +60,22 @@ class PokeService {
         }
 
     }
+
+    getPokemonById(id){
+
+       const pokeUrlID= BASE_URL + POKEMON_URL + id
+       return fetch(pokeUrlID)
+       .then(res => res.json())
+       .then(data => data)
+       .catch(err => console.log(err))
+
+
+    }
+
+
+
 }
+
+
 
 export default PokeService;
