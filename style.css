@@ -1,0 +1,50 @@
+#dex-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: linear-gradient(to bottom, red 50%,rgb(0, 0, 0) 50.5%,  rgb(255, 255, 255) 51%);
+    
+    padding: 10px;
+    border: 7px solid #000000;
+    border-radius: 50%;
+    text-align: center;
+  
+   color: rgb(0, 0, 0);
+
+}
+
+
+.tutto{
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+
+
+.sphere1 {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%; /* Rende il div una sfera */
+     
+     
+      
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+.sphere2 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(13, 11, 11);
+  border-radius: 50%; /* Rende il div una sfera */
+  
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+
+  
+}
+
