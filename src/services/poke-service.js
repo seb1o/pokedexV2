@@ -2,7 +2,7 @@ class PokeService {
 
     static BASE_URL = 'https://pokeapi.co/api/v2/'
     static POKEMON_URL = 'pokemon/'
-
+    static TYPE_URL = "type/"
 
     constructor(limit = 10, offset=0){
         this.limit = limit;
@@ -61,13 +61,46 @@ class PokeService {
 
     }
 
+    getPokemonByType(type) {
+        const url = PokeService.BASE_URL + PokeService.TYPE_URL + type;
+        return fetch(url)
+            .then(response => response.json())
+            .then((data) => {
+                const pokeList = [];
+                if (data && data.pokemon) {
+                    for (const entry of data.pokemon) {
+                        pokeList.push(entry.pokemon);
+                    }
+                } else {
+                    console.log(`No Pokémon found for this type: ${type}`);
+                }
+                return pokeList;
+            })
+            .then(pokeList => {
+                const requests = [];
+                for (const poke of pokeList) {
+                    const request = fetch(poke.url)
+                        .then(response => response.json())
+                        .then(data => data)
+                        .catch(err => console.log(err));
+                    requests.push(request);
+                }
+                return Promise.all(requests);
+            })
+            .catch(err => {
+                console.log(`Error : ${err}`);
+                return [];
+            });
+    }
+
+
     getPokemonById(id){
 
-       const pokeUrlID= BASE_URL + POKEMON_URL + id
-       return fetch(pokeUrlID)
-       .then(res => res.json())
-       .then(data => data)
-       .catch(err => console.log(err))
+        const url = PokeService.BASE_URL + PokeService.POKE_URL + id;
+        return fetch(url)
+            .then(response => response.json())
+            .then(data => data)
+            .catch(err => console.log(err));
 
 
     }

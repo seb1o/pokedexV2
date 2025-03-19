@@ -1,6 +1,8 @@
 import PokeService from "./services/poke-service.js";
 
 const pService = new PokeService();
+const typeSelect = document.getElementById('pokemon-type');
+const enterButton = document.getElementById('enter-button');
 
 pService.getPokeData().then(data => render(data));
 
@@ -15,6 +17,38 @@ function previous( ){
     pService.getPokeData().then(data => render(data));
 }
 window.previous = previous;
+
+function fetchTypes() {
+    const url = PokeService.BASE_URL + PokeService.TYPE_URL;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => populateDropdown(data))
+        .catch(err => console.log(err));
+  }
+
+
+  function populateDropdown(data) {
+    const types = data.results;
+    types.forEach(type => {
+        const option = document.createElement('option');
+        option.value = type.name;
+        option.textContent = type.name.charAt(0).toUpperCase() + type.name.slice(1);
+        typeSelect.appendChild(option);
+    });
+  }
+
+enterButton.addEventListener('click', () => {
+    const selectedType = typeSelect.value;
+    if (selectedType) {
+        window.location.href = `type.html?type=${selectedType}`;
+    } else {
+        alert(" Pokémon type not selected.");
+    }
+  });
+
+
+
+
 
 
 function render(data){
@@ -48,3 +82,6 @@ function render(data){
     }
 
 }
+
+
+fetchTypes();

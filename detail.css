@@ -1,0 +1,28 @@
+footer,
+header,
+#button-container,
+#detail-button {
+    text-align: center;
+}
+
+#button-container button{
+    padding: 10px;
+    width: 5rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(16, 5, 5);
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+  }
+
+  #detail-button button{
+    padding: 10px;
+    width: 5rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(16, 5, 5);
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+  }

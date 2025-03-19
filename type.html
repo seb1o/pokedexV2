@@ -3,23 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokèdex</title>
+  <title>Pokèdex API</title>
 </head>
 <body>
   <header >
-    <h1 id="type-header">Details</h1>
+    <h1 id="type-header">Type Page: </h1>
   </header>
   <main>
     <div id="button-container">
-        <button id="back-to-home" onclick="goBackHome()">Home</button>
+      <button id="back-to-home" onclick="goBackHome()">Home</button>
       <label for="pokemon-type">Select a Type: </label>
       <select id="pokemon-type">
       </select>
-      <button id="enter-button">Confirm</button>  
-    </div>
-    <div id="detail-button">
-        <button id="previous" onclick="previousPokemon()">Previous Pokemon</button>
-        <button id="next" onclick="nextPokemon()">Next Pokemon</button>   
+      <button id="enter-btn">Confirm</button>  
     </div>
     <div id="dex-container"></div>
   </main> 
@@ -27,5 +23,5 @@
     <p>©copyright lemure di madagascar 2025</p>
   </footer>
 </body>
-<script type="module" src="./src/detail.js"></script>
+<script type="module" src="./src/type.js"></script>
 </html>
